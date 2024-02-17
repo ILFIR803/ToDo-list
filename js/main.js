@@ -64,17 +64,25 @@ document.querySelector('.check-lists').addEventListener('click', (e) => {
       }
    }
    if (lists.classList.contains('task-title')) {
-      document.querySelectorAll('.task-text').forEach(item => {
-         item.classList.remove('task-text-block');
-      });
+      closePopups();
       lists.closest('.task').querySelector('.task-text').classList.add('task-text-block');
    }
    if (lists.classList.contains('close')) {
+      
+   }
+
+});
+
+function closePopups() { 
       document.querySelectorAll('.task-text').forEach(item => {
          item.classList.remove('task-text-block');
       });
-   }
+}
+window.addEventListener('click', (e) => {
 
+   if (!e.target.classList.contains('task-title')) {
+      closePopups();
+   }
 });
 
 document.querySelector('.check-lists').addEventListener('submit', (e) => {
