@@ -16,7 +16,6 @@ document.querySelector('.add-tasks-list').addEventListener('click', () => {
                   <span class="list-title">
                      Чек лист ${i}
                   </span>
-                  <img class="editing" src="./images/pencil-svgrepo-com.svg" alt="">
                   <button class="check-list-delete">Удалить чек-лист</button>
                </div>
                <ul class="tasks">
