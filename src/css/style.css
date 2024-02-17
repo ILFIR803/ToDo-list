@@ -20,6 +20,10 @@
   margin-bottom: 20px;
 }
 
+.no-task {
+  display: none;
+}
+
 .block-func {
   display: flex;
   justify-content: space-between;
@@ -57,10 +61,6 @@
 }
 .add-tasks-list:hover svg {
   fill: currentColor;
-}
-
-.check-lists {
-  padding: 20px 15px 20px;
 }
 
 .list-tasks {
@@ -154,4 +154,28 @@
 }
 .btn-primary:hover {
   background-color: #7a7373;
+}
+
+@media (max-width: 735px) {
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  #taskInput {
+    max-width: unset;
+    margin-bottom: 10px;
+    margin-right: 0;
+  }
+}
+@media (max-width: 600px) {
+  .btn-tasks {
+    padding: 4px 7px;
+  }
+  .container {
+    margin-top: 0;
+    padding: 30px 10px 30px;
+  }
+  .block-func {
+    flex-direction: column;
+  }
 }/*# sourceMappingURL=style.css.map */

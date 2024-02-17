@@ -21,6 +21,10 @@
    }
 }
 
+.no-task {
+   display: none;
+}
+
 .block-func {
    display: flex;
    justify-content: space-between;
@@ -56,6 +60,7 @@
 
    &:hover {
       color: #df6666;
+
       svg {
          fill: currentColor;
       }
@@ -63,15 +68,13 @@
 }
 
 
-.check-lists {
-   padding: 20px 15px 20px;
-}
 .list-tasks {
    background-color: #ffffff;
    border-radius: 10px;
    padding: 15px 10px 20px;
    margin-bottom: 10px;
 }
+
 .check-list {
 
    margin-top: 20px;
@@ -119,9 +122,11 @@
       margin-left: 10px;
    }
 }
+
 .hide {
    display: none;
 }
+
 .btn-action {
    img {
       pointer-events: none;
@@ -160,5 +165,33 @@
 
    &:hover {
       background-color: #7a7373;
+   }
+}
+
+@media (max-width: 735px) {
+   .form-group {
+      display: flex;
+      flex-direction: column;
+   }
+
+   #taskInput {
+      max-width: unset;
+      margin-bottom: 10px;
+      margin-right: 0;
+   }
+}
+
+@media (max-width: 600px) {
+   .btn-tasks {
+      padding: 4px 7px;
+   }
+
+   .container {
+      margin-top: 0;
+      padding: 30px 10px 30px;
+   }
+
+   .block-func {
+      flex-direction: column;
    }
 }

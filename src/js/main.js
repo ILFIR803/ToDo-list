@@ -1,11 +1,14 @@
 
-let i = 1
+let i = 1;
 document.querySelector('.add-tasks-list').addEventListener('click', () => {
 
    i += 1;
    if (document.querySelectorAll('.list-tasks').length == 0) {
       i = 1;
    }
+   document.querySelector('.no-task').style.display = 'none';
+
+
    const tasksListAdd = `
    <div class="list-tasks">
             <div class="check-list">
@@ -47,17 +50,21 @@ document.querySelector('.check-lists').addEventListener('click', (e) => {
    const lists = e.target;
    if (lists.classList.contains('check-list-delete')) {
       lists.closest('.list-tasks').remove();
-      i -= 1;
-   };
+      let items = document.querySelectorAll('.list-tasks');
+      if (items.length == 0) {
+         document.querySelector('.no-task').style.display = 'block';
+         i = 1;
+      }
+   }
+
    if (lists.classList.contains('delete')) {
       let noneTask = lists.closest('.tasks');
       lists.closest('.task').remove();
       if (noneTask.querySelectorAll('.task').length === 1) {
          noneTask.querySelector('.none').style.display = 'block';
       }
-   };
+   } 
 });
-
 
 document.querySelector('.check-lists').addEventListener('submit', (e) => {
    e.preventDefault();
@@ -92,7 +99,13 @@ document.querySelector('.check-lists').addEventListener('submit', (e) => {
 
 
 
+
+
+
 document.querySelector('.active-tasks').addEventListener('click', () => {
+   document.querySelector('.active-tasks').classList.add('bg-active');
+   document.querySelector('.all-tasks').classList.remove('bg-active');
+   document.querySelector('.completed-tasks').classList.remove('bg-active');
    const ckeckList = document.querySelectorAll('.list-tasks');
    ckeckList.forEach(item => {
       item.querySelectorAll('#check-task').forEach(i => {
@@ -105,6 +118,9 @@ document.querySelector('.active-tasks').addEventListener('click', () => {
 
 });
 document.querySelector('.completed-tasks').addEventListener('click', () => {
+   document.querySelector('.active-tasks').classList.remove('bg-active');
+   document.querySelector('.all-tasks').classList.remove('bg-active');
+   document.querySelector('.completed-tasks').classList.add('bg-active');
    const ckeckList = document.querySelectorAll('.list-tasks');
    ckeckList.forEach(item => {
       item.querySelectorAll('#check-task').forEach(i => {
@@ -117,6 +133,9 @@ document.querySelector('.completed-tasks').addEventListener('click', () => {
 
 });
 document.querySelector('.all-tasks').addEventListener('click', () => {
+   document.querySelector('.active-tasks').classList.remove('bg-active');
+   document.querySelector('.all-tasks').classList.add('bg-active');
+   document.querySelector('.completed-tasks').classList.remove('bg-active');
    const ckeckList = document.querySelectorAll('.list-tasks');
    ckeckList.forEach(item => {
       item.querySelectorAll('#check-task').forEach(i => {
@@ -125,3 +144,4 @@ document.querySelector('.all-tasks').addEventListener('click', () => {
    });
 
 });
+
