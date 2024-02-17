@@ -77,9 +77,6 @@ document.querySelector('.check-lists').addEventListener('click', (e) => {
 
 });
 
-
-
-
 document.querySelector('.check-lists').addEventListener('submit', (e) => {
    e.preventDefault();
    const lists = e.target;
