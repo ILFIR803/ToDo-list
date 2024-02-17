@@ -31,9 +31,8 @@ document.querySelector('.add-tasks-list').addEventListener('click', () => {
                   <div class="card-body">
                      <form id="form">
                         <div class="form-group">
-                           <input type="text" class="form-control" id="taskInput" placeholder="Текст задачи" required>
-                           <small id="emailHelp" class="form-text text-muted">Что делаем, сколько времени тратим, какой
-                              результат получаем.</small>
+                        <input type="text" class="form-control-title" id="taskTitleInput" placeholder="Введите название задачи" required>
+                        <textarea name="comment" class="form-control" id="taskInput" cols="40" rows="3" placeholder="Текст задачи" ></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary  btn-lg active" ">Добавить</button>
                      </form>
@@ -63,41 +62,59 @@ document.querySelector('.check-lists').addEventListener('click', (e) => {
       if (noneTask.querySelectorAll('.task').length === 1) {
          noneTask.querySelector('.none').style.display = 'block';
       }
-   } 
+   }
+   if (lists.classList.contains('task-title')) {
+      document.querySelectorAll('.task-text').forEach(item => {
+         item.classList.remove('task-text-block');
+      });
+      lists.closest('.task').querySelector('.task-text').classList.add('task-text-block');
+   }
+   if (lists.classList.contains('close')) {
+      document.querySelectorAll('.task-text').forEach(item => {
+         item.classList.remove('task-text-block');
+      });
+   }
+
 });
+
+
+
 
 document.querySelector('.check-lists').addEventListener('submit', (e) => {
    e.preventDefault();
    const lists = e.target;
    let btn = lists.closest('.list-tasks');
    const inputText = btn.querySelector('#taskInput'),
+      inputTitleText = btn.querySelector('#taskTitleInput'),
       taskAdd = btn.querySelector('.tasks'),
       noTask = btn.querySelector('.none');
 
+   const taskTitleInput = inputTitleText.value;
    const taskInput = inputText.value;
 
-   const taskTextHTML = `   <li class="task">
-                        <label>
-                           <input type="checkbox" id="check-task" name="interest"/>
-                           <span class="task-title">${taskInput}</span>
-                        </label>
-                        <button type="button" data-action="delete" class="btn-action delete">
-                           <img src="./images/garbage-in-trash-bin-recycle-bin-delete-svgrepo-com.svg" alt="Done" width="18"
-                              height="18">
-                        </button>
-      
-                     </li>
-                     `;
+   const taskTextHTML = `<li class="task">
+                           <div>
+                              <input type="checkbox" id="check-task" name="interest" />
+                              <span class="task-title">${taskTitleInput}</span>
+                              <div class="task-text">
+                                 ${taskInput}
+                                 <img src="./images/crosslinear_106242.svg" alt="" class="close"></img>
+                              </div>
+                           </div>
+                           <button type="button" data-action="delete" class="btn-action delete">
+                              <img src="./images/garbage-in-trash-bin-recycle-bin-delete-svgrepo-com.svg" alt="Done" width="18"
+                                 height="18">
+                           </button>
+                        </li>`;
    taskAdd.insertAdjacentHTML('beforeend', taskTextHTML);
+   inputTitleText.value = '';
    inputText.value = '';
-   inputText.focus();
+   inputTitleText.focus();
    let task = btn.querySelectorAll('.task');
    if (task.length > 1) {
       noTask.style.display = 'none';
    }
 });
-
-
 
 
 
