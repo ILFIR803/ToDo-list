@@ -74,7 +74,7 @@ document.querySelector('.check-lists').addEventListener('click', (e) => {
 });
 
 function closePopups() { 
-      document.querySelectorAll('.task-text').forEach(item => {
+      document.querySelectorAll('.task-text-block').forEach(item => {
          item.classList.remove('task-text-block');
       });
 }
