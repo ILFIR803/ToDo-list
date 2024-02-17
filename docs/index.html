@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+   <section class="container">
+      <h1 class="todo-title">
+         Список задач
+      </h1>
+      <div class="block-func">
+         <div class="list-tasks">
+            <button class="all-tasks btn-tasks bg-active">Все задачи</button>
+            <button class="active-tasks btn-tasks">Активные</button>
+            <button class="completed-tasks btn-tasks">Выполненные</button>
+         </div>
+         <button class="add-tasks-list">
+            <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+            <svg fill="#00000" width="30px" height="30px" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+               <path d="M486 691h52V538h153v-52H538V333h-52v153H333v52h153z" />
+            </svg>
+            <span>добавить чек-лист</span>
+         </button>
+      </div>
+      <h4>Пусто</h4>
+      <div class="check-lists">
+         <div class="list-tasks">
+            <div class="check-list">
+               <div class="check-list-top">
+                  <span class="list-title">
+                     Чек лист 1
+                  </span>
+                  <img class="editing" src="./images/pencil-svgrepo-com.svg" alt="">
+                  <button class="check-list-delete">Удалить чек-лист</button>
+               </div>
+               <ul class="tasks">
+                  <li class="task none">
+                     Нет задач
+                  </li>
+                 
+               </ul>
+
+            </div>
+            <div class="card bg-light">
+               <div class="card-header">Добавить новую задачу</div>
+               <div class="card-body">
+                  <form id="form">
+                     <div class="form-group">
+                        <input type="text" class="form-control" id="taskInput" placeholder="Текст задачи" required>
+                        <small id="emailHelp" class="form-text text-muted">Что делаем, сколько времени тратим, какой
+                           результат получаем.</small>
+                     </div>
+                     <button id="btn" type="submit" class="btn btn-primary  btn-lg active " >Добавить</button>
+                  </form>
+               </div>
+            </div>
+         </div>
+
+      </div>
+      
+   </section>
+   <script src="./js/main.js"></script>
+</body>
+
+</html>
